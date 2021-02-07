@@ -1,8 +1,14 @@
 # Asynchronous Code
 
-Welcome to the ninth lesson! In this lesson, you learn about asynchronous code. The browser reads your source code files from top to bottom. It reads each line one by one. The browser doesn't move to the next line until after reading the current line. This, however, can slow down your application if the line of code takes extra time to execute. 
+Welcome to the ninth lesson! In this lesson, you learn about asynchronous code. You can use asynchronous code to perform time-consuming tasks without slowing down your application.
 
-You can use asynchronous blocks of code tell the browser that the code inside will take extra time to execute. The browser responds by moving onto the next line while the time-consuming task executes in the background. When that code is finally done, it tells the browser and then the browser incorporates the results of that code into your application.
+The browser reads your source code files from top to bottom. It reads each line one by one. The browser doesn't move to the next line until the current line it's reading is done executing. This is known as **synchronous** behaviour. This, however, can slow down your application if the line of code takes extra time to execute. You may not want to hold up the flow of your application while it waits for the time-consuming task to complete.  
+
+To overcoem this, you can use asynchronous blocks of code tell the browser that the code inside will take extra time to execute and to move on to the next block of code. The browser responds by moving onto the next block of code while the time-consuming task executes in the background. When the time-consuming code is finally done, it tells the browser and provides the browser with the result of the task. Then, the browser incorporates the result into your application.  
+
+In this lesson, you first will get an introduction to asynchronous code. Oftentimes when using asynchronous code, you are using it to retrieve information from third-parties. So, in this lesson, you also will learn about third-party APIs. 
+
+Next, you will learn about some of the core concepts and tools from writing asynchronous blocks of code for fetching information from third parties. Specifically, you will learn about the `fetch` function, Promises, and Objects. You will see examples and learn how to incorporate them into your code.
 
 At the end of this lesson, you see a live coding example. The live coding session reinforces what you learn in the lesson. This lesson also helps prepare you for making your personal portfolio site. The code from this session is included in this repository. You can use it however you like, but as with any code you get from someone else, make sure you understand it well enough to explain it to someone before putting it in your own projects.  
 
