@@ -65,11 +65,49 @@ The topics below outline what you learn in the live session. After the live sess
 
 ### Fetch  
 
-- When writing asynchronous code that sends HTTP requuests to third-party APIs, you can use the built-in JavaScript function called `fetch`  
-- The `fetch` function
+- When writing asynchronous code that sends HTTP requests to third-party APIs, you can use the [built-in JavaScript function called `fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)  
+- Calling the `fetch` function looks like this, where `URL` is the address for the third-party API:  
 
-https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#promises  
-https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+```javascript
+const URL = https://dog.ceo/api/breeds/image/random
+
+fetch(URL)
+```
+- The `fetch` function takes one argument, which is the address of the API  
+- The function returns a `Promise`  
+- To handle the `Promise`, you can use the [`.then()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)  
+
+```javascript
+fetch('http://example.com/movies.json')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+- The example above uses the `.then()` method to access the HTTP response object returned by a fulfileed `Promise`  
+- The HTTP response contains the data in JSON format that your browser requestsed  
+- To access the JSON data, use the [`json()` method](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)  
+- The `.json()` method reads the response message inside the HTTP response and returns a `Promise` containing it  
+- To access the JSON data in that fulfilled `Promise`, the example uses the `.then()` method again, which also returns a `Promise` that resolves to a JavaScript object  
+- In the example, the varaible `data` represents that JavaScript object, and inside the function body of the argument second `.then()` method, you can access that data and do with it what you want; the example just console logs the result  
+- The code below is taken from [MDN's Intro to Asynchronous Code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#the_nature_of_asynchronous_code) and contains console logs that show the timing of the events of a `fetch` function  
+
+```javascript
+console.log ('Starting');
+let image;
+
+fetch('coffee.jpg').then((response) => {
+  console.log('It worked :)')
+  return response.blob();
+}).then((myBlob) => {
+  let objectURL = URL.createObjectURL(myBlob);
+  image = document.createElement('img');
+  image.src = objectURL;
+  document.body.appendChild(image);
+}).catch((error) => {
+  console.log('There has been a problem with your fetch operation: ' + error.message);
+});
+
+console.log ('All done!');
+```
 
 ### Promise
 
