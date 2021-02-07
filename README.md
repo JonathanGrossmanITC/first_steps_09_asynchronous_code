@@ -78,7 +78,8 @@ fetch(URL)
 - To handle the `Promise`, you can use the [`.then()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)  
 
 ```javascript
-fetch('http://example.com/movies.json')
+const URL = https://dog.ceo/api/breeds/image/random
+fetch(URL)
   .then(response => response.json())
   .then(data => console.log(data));
 ```
@@ -88,20 +89,17 @@ fetch('http://example.com/movies.json')
 - The `.json()` method reads the response message inside the HTTP response and returns a `Promise` containing it  
 - To access the JSON data in that fulfilled `Promise`, the example uses the `.then()` method again, which also returns a `Promise` that resolves to a JavaScript object  
 - In the example, the varaible `data` represents that JavaScript object, and inside the function body of the argument second `.then()` method, you can access that data and do with it what you want; the example just console logs the result  
-- The code below is taken from [MDN's Intro to Asynchronous Code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#the_nature_of_asynchronous_code) and contains console logs that show the timing of the events of a `fetch` function  
+- The code below is inspired by [MDN's Intro to Asynchronous Code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#the_nature_of_asynchronous_code) and contains console logs that show the timing of the events of a `fetch` function  
 
 ```javascript
 console.log ('Starting');
-let image;
+const URL = https://dog.ceo/api/breeds/image/random
 
-fetch('coffee.jpg').then((response) => {
-  console.log('It worked :)')
-  return response.blob();
-}).then((myBlob) => {
-  let objectURL = URL.createObjectURL(myBlob);
-  image = document.createElement('img');
-  image.src = objectURL;
-  document.body.appendChild(image);
+fetch(URL).then((response) => {
+  console.log('Got the HTTP response)')
+  return response.json();
+}).then((data) => {
+  console.log ('Got the data: ', data);
 }).catch((error) => {
   console.log('There has been a problem with your fetch operation: ' + error.message);
 });
