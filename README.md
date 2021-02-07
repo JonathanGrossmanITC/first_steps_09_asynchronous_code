@@ -47,6 +47,8 @@ The topics below outline what you learn in the live session. After the live sess
 - The third-party API will have documentation that instructs you how to access and consume the API, and that's where you can find the URL  
 -- For instance, Github has an API that you can use to access your Github information, including your name, profile, repository information, and more  
 -- Many other companies and services have APIs, like Facebook, Spotify, Google, Amazon, Twitter and more  
+-- Here is one for [dog photos](https://dog.ceo/dog-api/)  
+-- Punch [this into your browser](https://dog.ceo/api/breeds/image/random) to see what the API returns to you  
 - You should write asynchronous blocks of code for communications between your browser and third-party APIs because the time it takes to send a request and receive a response is much longer than it takes for your browser to execute other lines of code  
 -- Although fetching information can take a long time relative to other lines of code, to you it'll happen usually very fast; sometimes so fast that you can't perceive a delay  
 - When sending a request from a browser, you can send an HTTP GET request, POST requst, or other type of HTTP request; those two are your focus for now  
@@ -69,7 +71,7 @@ The topics below outline what you learn in the live session. After the live sess
 - Calling the `fetch` function looks like this, where `URL` is the address for the third-party API:  
 
 ```javascript
-const URL = https://dog.ceo/api/breeds/image/random
+const URL = "https://dog.ceo/api/breeds/image/random"
 
 fetch(URL)
 ```
@@ -78,12 +80,13 @@ fetch(URL)
 - To handle the `Promise`, you can use the [`.then()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)  
 
 ```javascript
-const URL = https://dog.ceo/api/breeds/image/random
+const URL = "https://dog.ceo/api/breeds/image/random"
 fetch(URL)
   .then(response => response.json())
   .then(data => console.log(data));
 ```
 - The example above uses the `.then()` method to access the HTTP response object returned by a fulfileed `Promise`  
+- The `.then()` method accepts a function as an argument  
 - The HTTP response contains the data in JSON format that your browser requestsed  
 - To access the JSON data, use the [`json()` method](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)  
 - The `.json()` method reads the response message inside the HTTP response and returns a `Promise` containing it  
@@ -93,7 +96,7 @@ fetch(URL)
 
 ```javascript
 console.log ('Starting');
-const URL = https://dog.ceo/api/breeds/image/random
+const URL = "https://dog.ceo/api/breeds/image/random"
 
 fetch(URL).then((response) => {
   console.log('Got the HTTP response)')
@@ -109,10 +112,67 @@ console.log ('All done!');
 
 ### Promise
 
-Definition: https://www.w3schools.com/js/js_promise.asp  
-Basic example: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#basic_example  
+- The `fetch` function is just one example of a function that returns a `Promise`  
+- You can write your own functions that return a `Promise` by using [the `Promise` object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)  
+
+- Here is a good basic example of a [`Promise` from MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#basic_example) 
+
+```javascript
+let myFirstPromise = new Promise((resolve, reject) => {
+  // We call resolve(...) when what we were doing asynchronously was successful, and reject(...) when it failed.
+  // In this example, we use setTimeout(...) to simulate async code.
+  // In reality, you will probably be using something like XHR or an HTML5 API.
+  setTimeout( function() {
+    resolve("Success!")  // Yay! Everything went well!
+  }, 250)
+})
+
+myFirstPromise.then((successMessage) => {
+  // successMessage is whatever we passed in the resolve(...) function above.
+  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+  console.log("Yay! " + successMessage)
+});
+```
+
+- From [W3Schools](https://www.w3schools.com/js/js_promise.asp), here is an example of the syntax for creating your own `Promise` object:  
+
+```javascript
+let myPromise = new Promise(function(myResolve, myReject) {
+// "Producing Code" (May take some time)
+
+  myResolve(); // when successful
+  myReject();  // when error
+});
+
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+  function(value) { /* code if successful */ },
+  function(error) { /* code if some error */ }
+);
+```
+
+- The examples create a new `Promise` object and save it to a variable (e.g., `myPromise`)  
+- The argument passed into the `new Promise ()` object is a function definition  
+- This `Promise` object represents the eventual completion of the argument function inside it  
+- That argument function definition has two arguments of its own, both of which are functions    
+- Inside the the body of the argument function, you can call one or both functions and write whatever other code you want  
+- This code inside the body of the argument function is called when the `Promise` is created  
+- In the `MDN` example above, you see the `setTimeout` takes time to execute, and when it's done, it calls the `resolve` argument, which is the function that contains the data you want    
+- Now, to consume the `Promise`, you use the `.then()` method to access the data returned inside the `Promise`  
+- The `.then()` method, like you saw above with `fetch`, takes a function as an argument (here, it actually takes two arguments)  
+- The argument inside those argument functions are the data you want, in the example above, it's the `value` and `error` variables  
+- Those variables contain the actual data that you want to use in your app    
+- It's okay if you don't yet understand `Promises`; they are complicated and take time to understand; this is intended only as an introduction to get you some initial exposure to the topic    
+- For now, know how to use the `fetch` function  
+- In addition to the other links in this section, here are [more examples](https://www.w3schools.com/js/js_promise.asp), [more reading and examples](https://javascript.info/promise-basics), and here is [more reading](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises#improvements_with_promises)  
 
 ### Objects
+
+- The `fetch` function returns an HTTP request, and you can use the `json()` method to access the JSON data from third-party APIs 
+- When you use that `json()` function, it returns a `Promise` containing a JavaScript object  
+- It's good practice to console log that object to see its structure  
+- Here is an example of a JavaScript object from a third-party API's JSON data:  
+
 
 ## [Live Coding](#live-coding)   
 
