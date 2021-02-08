@@ -221,4 +221,5 @@ The live coding session continues working on the live code from the previous les
 2. Write a fetch request [to this address](https://dog.ceo/api/breeds/image/random) and display the photo somewhere on your page, but only if the response status says success; while the request is pending show a loader; remove the loader if the request is successful    
 3. Put the following link in your browser for [Github Jobs](https://jobs.github.com/positions.json?description=api) and study the response object    
 Write a fetch request that loops through the response and puts at least three details about each job on your webpage  
+4. Look at this link for [more APIs](https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/)  
 
