@@ -42,7 +42,7 @@ You will learn about using the `fetch` method later in this lesson. It is an exa
 - A [`Promise` is a placeholder](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) for a value that does not yet exist in your project  
 - A `Promise` object takes a function as an argument (and that function might have it's own arguments)  
 - A `Promise` can be in one of three states: pending, rejected, and fulfilled  
-- While a pending, the code inside the promise is executing  
+- While pending, the code inside the promise is executing  
 - When the code is done, the `Promise` is either fulfilled and contains a value or is rejected and contains an error message  
 - To access the information returned by the promise, you have to **handle** the promise  
 - The [`async` / `await` approach](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await) is the modern way to handle promises; another important way to know is using the [`.then()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)    
@@ -58,20 +58,20 @@ You will learn about using the `fetch` method later in this lesson. It is an exa
 - An Application Programming Interface (API) is software that you can access through the internet using HTTP   
 - You can send a request from your browser to the URL for an API and receive a response containing data from the third-party API  
 - The third-party API will have documentation that instructs you on how to access and consume the API, and that's where you can find the URL  
--- For instance, Github has an API that you can use to access your Github information, including your name, profile, repository information, and more  
+-- For instance, GitHub has an API that you can use to access your GitHub information, including your name, profile, repository information, and more  
 -- Many other companies and services have APIs, like Facebook, Spotify, Google, Amazon, Twitter and more  
 -- Here is one for [dog photos](https://dog.ceo/dog-api/)  
 -- Punch [this into your browser](https://dog.ceo/api/breeds/image/random) to see what the API returns to you  
 -- Some APIs require an API key; some require payment; and some are free with no key required!  
 - You should write asynchronous blocks of code for communications between your browser and third-party APIs because the time it takes to send a request and receive a response is much longer than it takes for your browser to execute other lines of code  
 -- Although fetching information can take a long time relative to other lines of code, sometimes it happens fast enought that the user doesn't perceive a delay  
-- When sending a request from a browser, you can send an HTTP GET request, POST requst, or other type of HTTP request; those two are your focus for now  
+- When sending a request from a browser, you can send an HTTP GET request, POST request, or other type of HTTP request; those two are your focus for now  
 - A GET request asks the third party for specific information, like a list of all songs, all users who liked a photo, or the text from a Google Doc  
 - A POST request is used for submitting information to the third party, like a form containing signup information, a file, or some other type of data  
 - After processing your request, the API will send a response to your browser  
 - A response to a GET request, if successful, will contain the requested information; otherwise, the response returns an error message  
 - A response to a POST request usually contains a message saying whether the submission was successful  
-- [Response codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) can be used to signal to the browser the results of the requst 
+- [Response codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) can be used to signal to the browser the results of the requst  
   -- Examples of response codes: 200 means success, 400 means some sort of error with the browser's request, and 500 means internal API server error     
 - The moden way to send requests in JavaScript is using the `fetch` function  
 - Using fetch, you can send an HTTP request from your browser to a third-party and receive a response inside of the `fetch` function   
