@@ -28,7 +28,7 @@ The topics below outline what you learn in the live session. After the live sess
 - Asynchronous blocks of code allow the browser to run time-consuming tasks without waiting for the result before the browser reads subsequent lines of code  
 - By default, browsers read code files from top to bottom and wait to continue reading until the current line is done executing  
 - Blocks of code that prevent an application from continuing are called [blocking code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts#blocking_code)  
-  -- Examples of blocking code are `for` loops that iterate through huge arrays, [the `setTimeout` function](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals), and `fetch` requests  
+  -- Examples of blocking code are `for` loops that iterate through huge arrays, [the `setTimeout` function](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Timeouts_and_intervals), and API requests  
   -- These tasks take enough time to complete that they prevent your application from doing other things until these tasks are done executing  
 - To create [an asynchronous block of code](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#asynchronous_javascript), you can use a built-in method that returns a `Promise` like the `fetch` function, JavaScript's built-in `Promise` object, or [callback functions](https://www.w3schools.com/js/js_callback.asp)  
 
